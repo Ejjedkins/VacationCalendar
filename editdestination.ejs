@@ -1,0 +1,34 @@
+<%- include('../partials/header')-%>
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('../partials/nav'); -%>
+         <main role="main" class="inner cover">
+            <h1 class="cover-heading">Edit Destination</h1>
+            <form method="POST">
+                <input type="hidden" name="destid" value ="<%= locals.destination.id %>" />
+                <div class="form-group">
+                </div>
+                <div class="form-group">
+                    <label for="City">City</label>
+                    <input type="text" class="form-control" value="<%= locals.destination.city %>"
+                         id="tname" name="city" placeholder="Enter City Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Country">Country</label>
+                    <input type="text" class="form-control" id="country" value="<%= locals.destination.country %>"
+                    
+                         name="country" placeholder="Enter Country" required>
+                </div>
+                <div class="form-group">
+                    <label for="sightseeing">Sightseeing</label>
+                    <input type="text" class="form-control" id="ss" 
+                        value="<%= locals.destination.sightseeing  %>"
+                        name="sightseeing" >
+                </div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<%- include('../Partials/header')-%>
+<div class= "container">
+<h2 style="text-align:center;  padding-top: 50px; "> Please sign in! </h2>
+<form method="post" name="login" style="text-align: center; padding-top: 50px; position:relative; left:275px">
+    <main style="background-color:goldenrod; border-style:double; border-color: darkred; border-radius: 30px; height: 500px; width: 50%; ">
+    <div class="row mb-4" style="text-align:center; padding-top: 120px;">
+    <div class="col" style = "width: 300px; display: inline-block;  " >
+    Username: <input type="text" name="userid" placeholder="Enter Username Here"/>
+    </div>
+    <div class="row mb-4">
+    <div class="col" style = "width: 300px; display: inline-block; " >
+    Password: <input type="password" name="password" placeholder="Enter Password Here"/>
+    </div>
+    <div class="row mb-4">
+    <div class="col" style = "width: 300px; display: inline-block; padding-bottom: 20px;"  >
+    <button type="submit" style = "width:50%" class="btn btn-secondary " value="Login">Login</button>
+    </div>
+    <br>
+    <div class="col" style = "width: 300px; display: inline-block;" >
+    <button type="reset" style = "width:50%" class="btn btn-secondary" value="Cancel">Cancel</button>
+    </div>
+    <div class="row mb-4">
+    <div class="col" style = "width: 300px; display: inline-block;" >
+    <%= locals.errors %> </P>
+    </div>
+    </div>
+</main>
+</form>
+</div>
+</body>
+</html>

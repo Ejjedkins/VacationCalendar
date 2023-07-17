@@ -1,0 +1,51 @@
+<%- include('../Partials/header')-%>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('../partials/nav')-%>
+        <h1 class="cover-heading">Current Planner</h1>
+                    <div class="container bg-light text-dark">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style ="position:relative; left: 63px">Trip</th>
+                                    <th style ="position:relative; left: 30px">Transportation</th>
+                                    <th style ="position:relative; left: 120px"> Start Date</th>
+                                    <th style ="position:relative; left: 125px"> End date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (locals.trip) { %>
+                
+                                    <% locals.trip.forEach(function(trip) { %>
+                                <tr>
+                                    <td><%= trip.tripname %></td>
+                                    <td><%= trip.transportation%></td>
+                                    <td><%= trip.startdate %></td>
+                                    <td><%= trip.enddate %></td>
+                                    <td><a href="/edittrip/<%= trip.id %>">Edit</a></td>
+                                    <td><a onClick="deleteTrip(<%= trip.id %>)">Delete</a></td>
+                                </tr>
+                                <%});%>
+                                <% } %>
+                            </tbody>
+                        
+                            
+                    </table>
+                    </div>
+                </div>
+
+</body>
+<script>
+    window.onload = function() {
+        document.getElementById('trip').classList.add('active');
+    };
+
+    function deleteTrip(tripId) {
+        if(confirm('Are you sure?')) {
+            fetch(`/deletetrip/${tripId}`, {method: 'DELETE'}).then(resp => { res.json() }).then(json => { console.log('DONE'); window.location.reload() });
+            setTimeout( function() { window.location.reload()}, 330);
+        }
+    }
+</script>
+</html>

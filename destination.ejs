@@ -1,0 +1,41 @@
+<%- include('../Partials/header')-%>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('../partials/nav')-%>
+        <h1 class="cover-heading">Current Planner</h1>
+                    <div class="container bg-light text-dark">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>City</th>
+                                    <th>Country</th>
+                                    <th> Sightseeing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (locals.destination) { %>
+                
+                                    <% locals.destination.forEach(function(destination) { %>
+                                <tr>
+                                    <td><%= destination.city %></td>
+                                    <td><%= destination.country%></td>
+                                    <td><%= destination.sightseeing %></td>
+                                    <td><a href="/editdestination/<%= destination.id %>">Edit</a></td>
+                                </tr>
+                                <%});%>
+                                <% } %>
+                            </tbody>
+                        
+                            
+                    </table>
+                    </div>
+                </div>
+
+</body>
+<script>
+    window.onload = function() {
+        document.getElementById('destination').classList.add('active');
+      };
+</script>
+</html>
